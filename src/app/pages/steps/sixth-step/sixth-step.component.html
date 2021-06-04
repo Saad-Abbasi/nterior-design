@@ -1,0 +1,338 @@
+<div class="bounds" style="overflow: auto;">
+    <div class="content" fxLayout="row" fxLayoutGap="5px">
+        <div fxFlex>
+            <mat-card class="image-card">
+
+                <div class="door-button-container outer-color">
+                    <!-- <button class="outer-color-button" mat-icon-button (click)="openDialog()">
+                        <mat-icon>palette</mat-icon>
+                        Kies Buitenste kleur
+                      </button> -->
+                </div>
+                <div class="door-button-container">
+                    <mat-button-toggle-group  (change)="onValChange($event.value)">
+                        <mat-button-toggle value="true"  aria-label="Met deuren"
+                        [ngClass]="(isDoor =='true')?'active-button':'deactive-button'">
+                            Met deuren
+                        </mat-button-toggle>
+                        <mat-button-toggle value="false" aria-label=" Zonder deuren"
+                        [ngClass]="(isDoor =='false')?'active-button':'deactive-button'">
+                            Zonder deuren
+                        </mat-button-toggle>
+                      </mat-button-toggle-group>
+                </div>
+                <div class="button-text" *ngIf="isDoor == 'true'">
+                    <span>Wijzig de draairichting van de kast door te klikken op de dubbele pijl.</span>
+                </div>
+               
+
+                <mat-card class="closet-wraper" [style.max-width]="widthAreaBox">
+                    <div class="schuine_kant" >
+                        <div [ngClass]="(slopeDirection =='right')?'afschuining_border blackbox_right':'afschuining_border blackbox_left'" [style.border-width]="borderSlope"></div>
+                        <div [ngClass]="(slopeDirection =='right')?'afschuining_border afschuining_right':'afschuining_border afschuining_left'" [style.border-width]="borderSlope"></div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start " >
+                        <mat-card  *ngFor="let closet of closets;let i = index"
+                            [ngClass]="(closet.cols =='2')?'full-box':'half-box'"
+                            [style.max-width]="closet.boxWidthTest"
+                            [style.backgroundImage]="'url(' + closet.closetDesignImage + ') ,
+                             url('+ bgImage[i] +')'"
+                             
+                            [style.transform]="scalVal[i]">
+                            <span class="table-value">{{closet.widthInCm}}</span>
+                            <!-- <div *ngIf="isDoor=='true'">
+                                <button  mat-icon-button class="add-remove-door" aria-label="add remove door">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div> -->
+                        <div class="flip-door-button-container">
+                            <button class="flip-door-button" *ngIf="closet.cols =='1' && isDoor =='true'" mat-button 
+                            (click)="flipDoor(i)">
+                            
+                                <mat-icon>swap_horiz</mat-icon>
+                            </button>
+                        </div>
+                            
+                        </mat-card>
+                        
+                    </div>
+                </mat-card>
+                <div class="with-handle" *ngIf="isDoor == 'true'">
+                    <mat-checkbox #handle  (click)="isHandle(!handle.checked)">Deurgrepen toevoegen</mat-checkbox>
+                </div>
+
+                
+            </mat-card>
+                <!-- Design Color Choose -->
+                <mat-card class="mat-color-card-super mat-elevation-z0">
+                    <div class="selection_box">
+                        <mat-card class="full-closet mat-elevation-z0" [style.max-width]="widthAreaBox">
+    
+                        <div fxLayout="row" class="color-card-head">
+                            <!-- <div class="door-button-container">
+                                <mat-button-toggle-group (change)="onValChange($event.value)">
+                                    <mat-button-toggle value="true"  aria-label="Color inner box"
+                                    [ngClass]="(isInnerColor =='true')?'active-button':'deactive-button'">
+                                    Kleur binnenkast
+                                    </mat-button-toggle>
+                                    <mat-button-toggle value="false" aria-label="Color outer box"
+                                    [ngClass]="(isInnerColor =='false')?'active-button':'deactive-button'">
+                                    Kleur buitenkast
+                                    </mat-button-toggle>
+                                  </mat-button-toggle-group>
+                            </div> -->
+                        </div>
+    
+                        <div fxLayout="row" class="color-card-head">
+                            <div fxFlex="50" > <h5>Egger unikleuren</h5> </div>  <div fxFlex="50"><h5>Egger houtdecor</h5></div>
+                        </div>
+                         <div fxLayout="row" >
+                            <div fxFlex="50">
+                                <mat-card [style.background-image]="'url('+designImages[10]+')'" #imge  class="color-card"  id="imge1" (click)="updateColor(10,'W1000 ST9 Premium wit')">
+                                    <span> <mat-icon (click)="openDialog(10)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Gebroken wit</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[11]+')'" class="color-card" id="imge2"  (click)="updateColor(11,'W911 ST15 Gebroken wit')">
+                                    <span> <mat-icon (click)="openDialog(11)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Beige</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[12]+')'" class="color-card"  id="imge3"  (click)="updateColor(12,'U899 ST9 Soft black')">
+                                    <span> <mat-icon (click)="openDialog(12)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Mokka</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[13]+')'" class="color-card" id="imge4" (click)="updateColor(13,'U763 ST9 Parelgrijs')">
+                                    <span> <mat-icon  (click)="openDialog(13)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Taupe</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[14]+')'" class="color-card"  id="imge5"  (click)="updateColor(14,'U740 ST9 Donkertaupe')">
+                                    <span> <mat-icon (click)="openDialog(14)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Wit</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[15]+')'" class="color-card"  id="imge6" (click)="updateColor(15,'U732 ST9 Stofgrijs')" >
+                                    <span> <mat-icon (click)="openDialog(15)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Vergrijsde eik</mat-card-footer>
+                                    
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[16]+')'" class="color-card" id="imge7"  (click)="updateColor(16,'U727 ST9 Steengrijs')">
+                                    <span> <mat-icon (click)="openDialog(16)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Amazonia</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[17]+')'" class="color-card"  id="imge8" (click)="updateColor(17,'U707 ST9 Zijdegrijs')">
+                                    <span> <mat-icon  (click)="openDialog(17)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Walnoot</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[18]+')'" class="color-card" id="imge9"  (click)="updateColor(18,'U156 ST9 Zandbeige')">
+                                    <span> <mat-icon (click)="openDialog(18)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Zwart</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[19]+')'" class="color-card"  id="imge6" (click)="updateColor(19,'MDF grondlaag')" >
+                                    <span> <mat-icon (click)="openDialog(19)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Vergrijsde eik</mat-card-footer>
+                                    
+                                </mat-card>
+                                <!-- <mat-card [style.background-image]="'url('+designImages[27]+')'" class="color-card" id="imge7"  (click)="updateColor(27,'Amazonia')">
+                                    <span> <mat-icon (click)="openDialog(27)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Amazonia</mat-card-footer>
+                                </mat-card> -->
+                                
+                            </div>
+                                                                            <!--Houtstructuren-->
+                            <div fxFlex>
+                                <mat-card [style.background-image]="'url('+designImages[0]+')'" #imge  class="color-card"  id="imge1" (click)="updateColor(0,'W1000 ST19 Premium wit')">
+                                    <span> <mat-icon (click)="openDialog(0)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Gebroken wit</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[1]+')'" class="color-card" id="imge2"  (click)="updateColor(1,'H3710 ST12 Carini notelaar natuur')">
+                                    <span> <mat-icon (click)="openDialog(1)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Beige</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[2]+')'" class="color-card"  id="imge3"  (click)="updateColor(2,'H3335 ST28 Gladstone eik wit')">
+                                    <span> <mat-icon (click)="openDialog(2)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Mokka</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[3]+')'" class="color-card" id="imge4" (click)="updateColor(3,'H3158 ST19 Vicenza eik grijs')">
+                                    <span> <mat-icon  (click)="openDialog(3)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Taupe</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[4]+')'" class="color-card"  id="imge5"  (click)="updateColor(4,'H3157 ST12 Vicenza eik')">
+                                    <span> <mat-icon (click)="openDialog(4)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Wit</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[5]+')'" class="color-card"  id="imge6" (click)="updateColor(5,'H3058 ST22 Mali wengé')" >
+                                    <span> <mat-icon (click)="openDialog(5)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Vergrijsde eik</mat-card-footer>
+                                    
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[6]+')'" class="color-card" id="imge7"  (click)="updateColor(6,'H3012 ST22 Coco bolo natuur')">
+                                    <span> <mat-icon (click)="openDialog(6)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Amazonia</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[7]+')'" class="color-card"  id="imge8" (click)="updateColor(7,'H1318 ST10 Wilde eik natuur')">
+                                    <span> <mat-icon  (click)="openDialog(7)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Walnoot</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[8]+')'" class="color-card" id="imge9"  (click)="updateColor(8,'H1313 ST10 Whiteriver eik grijsbruin')">
+                                    <span> <mat-icon (click)="openDialog(8)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Zwart</mat-card-footer>
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+designImages[9]+')'" class="color-card"  id="imge10" (click)="updateColor(9,'H1312 ST10 Whiteriver eik zandbeige')" >
+                                    <span> <mat-icon (click)="openDialog(5)">open_in_full</mat-icon></span>
+                                    <mat-card-footer class="footer" >Vergrijsde eik</mat-card-footer>
+                                    
+                                </mat-card>
+                                
+                            </div>
+                         </div>
+                        </mat-card>
+                    </div>
+                </mat-card>
+            <!-- Design Color Choose -->
+            <!-- <mat-card class="mat-color-card-super mat-elevation-z0">
+                <div class="selection_box">
+                    <mat-card class="full-closet mat-elevation-z0" [style.max-width]="widthAreaBox">
+                        <div fxLayout="row" class="color-card-head">
+                            <div fxFlex="50">
+                                <h5>Handgrepen</h5>
+                            </div>
+                            
+                        </div>
+                        <div fxLayout="row">
+                            <div fxFlex>
+                                <mat-card [style.background-image]="'url('+handleImages[0]+')'"  class="color-card"
+                                    id="imge1" (click)="addHandle(0,'l- greep zwart')">
+                                    
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[1]+')'" class="color-card"
+                                    id="imge2" (click)="addHandle(1,'L-greep wit')">
+                                   
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[2]+')'" class="color-card"
+                                    id="imge3" (click)="addHandle(2,'Inox U-vorm')">
+                                  
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[3]+')'" class="color-card"
+                                    id="imge4" (click)="addHandle(3,'kraan-knop')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[4]+')'" class="color-card"
+                                    id="imge5" (click)="addHandle(4,'Alu knop zwart')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[5]+')'" class="color-card"
+                                    id="imge6" (click)="addHandle(5,'Inox blokje')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[6]+')'" class="color-card"
+                                    id="imge7" (click)="addHandle(6,'alu knop rond')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[7]+')'" class="color-card"
+                                    id="imge8" (click)="addHandle(7,'Inox knop rond')">
+                                </mat-card>
+                                 <mat-card [style.background-image]="'url('+handleImages[8]+')'" class="color-card"
+                                    id="imge9" (click)="addHandle(8,'kraan-knop')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[9]+')'" class="color-card"
+                                    id="imge10" (click)="addHandle(9,'Alu knop zwart')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[10]+')'" class="color-card"
+                                    id="imge11" (click)="addHandle(10,'Inox blokje')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[11]+')'" class="color-card"
+                                    id="imge12" (click)="addHandle(11,'alu knop rond')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[12]+')'" class="color-card"
+                                    id="imge13" (click)="addHandle(12,'Inox knop rond')">
+                                </mat-card>
+                                
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card> -->
+        </div>
+
+
+
+        <div fxFlex="30" class="sec2">
+            <mat-card class="mat-card-right-panel">
+                <div class="side-card">
+                    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                        <div fxFlex="100" class="sec1" fxFlex.xs="55">
+                            <mat-card class="mat-elevation-z0">
+                                <div class="title">
+                                    <mat-card-title>
+                                        Overzicht
+                                    </mat-card-title>
+                                </div>
+
+                                <mat-card-content fxLayout="column">
+                                    <mat-list role="list" fxFlex="100">
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Breedte kast (X1)</span> <span
+                                                fxFlex="50">{{cabnetWidth || 0}} cm</span>
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Hoogte kast (Y1)</span> <span
+                                                fxFlex="50">{{cabnetHeight || 0}} cm</span>
+                                        </mat-list-item>
+                                        <div class="slope-box" *ngIf="slope">
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Breedte kast (X2)</span> <span fxFlex="50">{{cabnetWidth2 || 0}} cm</span>
+                                            </mat-list-item>
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Hoogte kast (Y2)</span> <span fxFlex="50">{{cabnetHeight2 || 0}} cm</span>
+                                            </mat-list-item>
+                                        </div>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Diepte kast</span> <span fxFlex="50">{{cabnetDepth || 0}}
+                                                cm</span>
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Kleur binnenkast</span>
+                                            <span *ngIf="innerColorName" id="color-name" fxFlex="30">{{innerColorName}}</span>
+                                            <span *ngIf='innerColor'fxFlex="20" >
+                                                <div id="color-inner" [style.background-image]="'url('+innerColor+')'">
+                                                </div>
+                                            </span>
+
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Kleur buitenkast</span>
+                                            <span *ngIf="outerColorName" id="color-name" fxFlex="30">{{outerColorName}}</span>
+                                            <span *ngIf='outerColor'fxFlex="20" >
+                                                <div id="color-inner" [style.background-image]="'url('+outerColor+')'">
+                                                </div>
+                                            </span>
+                                        </mat-list-item>
+                                        <!-- <mat-list-item role="listitem">
+                                            <span fxFlex="50">Handgrepen</span>
+                                            <span *ngIf="handleName" fxFlex="30">{{handleName}}</span>
+                                            <span *ngIf="handle" >
+                                                <div class="handle-image" id="color-inner" [style.background-image]="'url('+handle+')'">
+                                                </div>
+                                            </span>
+                                        </mat-list-item> -->
+                                    </mat-list>
+                                    <app-shared-form></app-shared-form>
+                                    <!-- Price Setup -->
+                                    <div class="section-below" fxFlex="100">
+                                        <mat-divider [inset]="true"></mat-divider>
+                                        <h2>Totale prijs:</h2>
+                                        <span id="total_price">€<span id="total_price_number">{{price}}</span></span><span
+                                            class="btw">(excl. BTW)</span>
+                                        <p>Geschatte levertijd: 15 werkdagen</p>
+                                    </div>
+
+                                </mat-card-content>
+                            </mat-card>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>

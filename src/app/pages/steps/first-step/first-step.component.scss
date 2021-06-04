@@ -1,0 +1,23 @@
+.images-card {
+    mat-grid-tile-footer{
+        display: flex;
+        justify-content: center;
+    }
+  }
+  mat-card{
+      background-color: white;
+  }
+  
+  .nested-card{
+      max-width: 250px;
+  }
+ img:hover{
+    cursor: pointer;
+    zoom: 0.5;
+    // margin: 5px;
+    // border: 5px solid gold;
+    
+ }
+ mat-grid-tile-footer{
+     background-color:#e78932 !important;
+ }

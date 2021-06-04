@@ -1,0 +1,10 @@
+@media (orientation:portrait) {
+    .configurator {
+       display: none; /* visibility: none; */
+    }
+ }
+ @media (orientation:landscape) and (max-width: 767px) {
+    .configurator {
+       display: none; /* visibility: none; */
+    }
+ }

@@ -1,0 +1,23 @@
+
+
+.custom-grid{
+
+    mat-grid-list{
+        mat-grid-tile{
+            height: 300px;
+            // width: 150px;
+            img{
+                width: 160px;
+                height: 300px;
+                margin-bottom: 10px;
+                background-color: #fffdd0;
+            }
+            img:hover{
+                cursor: pointer;
+               
+                
+             }
+        }
+    }
+    
+}

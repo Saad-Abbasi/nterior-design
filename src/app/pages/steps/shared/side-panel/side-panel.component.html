@@ -1,0 +1,52 @@
+<div class="side-card">
+	<div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+		<div fxFlex="100" class="sec1" fxFlex.xs="55">
+			<mat-card class="mat-elevation-z0">
+                <div class="title">
+                    <mat-card-title>
+                        Overzicht
+                   </mat-card-title>
+                </div>
+                
+                <mat-card-content fxLayout="column"  >
+                    <mat-list role="list" fxFlex="100" >
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Breedte kast (X1)</span> <span fxFlex="50">{{0}} cm</span>
+                        </mat-list-item>
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Hoogte kast (Y1)</span> <span fxFlex="50">{{0}} cm</span>
+                        </mat-list-item>
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Diepte kast</span> <span fxFlex="50">{{0}} cm</span>
+                        </mat-list-item>
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Kleur binnenkast</span> <span fxFlex="50"></span>
+                        </mat-list-item>
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Kleur buitenkast</span> <span fxFlex="50"></span>
+                        </mat-list-item>
+                        <mat-list-item  role="listitem">
+                            <span fxFlex="50">Handgrepen</span> <span fxFlex="50"></span>
+                        </mat-list-item>
+                        <!-- <mat-list-item  role="listitem">
+                            <span fxFlex="50">Kleur binnenkast</span> <span fxFlex="50">{{0}} cm</span>
+                        </mat-list-item> -->
+                      </mat-list>
+
+                                                        <!-- Price Setup -->
+                      <div class="section-below" fxFlex="100">
+                        <mat-divider [inset]="true"></mat-divider>
+                      <h2>Totaaprijs:</h2>
+                      <span id="total_price">€<span id="total_price_number">0,00</span></span><span class="btw">(incl. BTW)</span>
+                      <p>Geschatte levertijd: 5 werkdagen</p>
+                      </div>
+                      
+                </mat-card-content>
+            </mat-card>
+           
+		</div>
+		
+
+	</div>
+
+</div>

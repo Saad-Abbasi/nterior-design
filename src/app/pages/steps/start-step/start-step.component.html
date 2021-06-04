@@ -1,0 +1,99 @@
+<div >
+    <div class="content" fxLayout="row" fxLayoutGap="5px">
+
+        <div fxFlex >
+            <mat-card class="image-card">
+               
+                
+                <div *ngIf="imageUrl" class="selectedDesignImage" [style.backgroundImage]="'url('+ imageUrl +')'" >
+                    
+                 </div>
+            </mat-card>
+        </div>
+                                            <!-- Side panel -->
+        <div fxFlex="40" class="sec2">
+            <mat-card class="mat-card-right-panel">
+                <div class="side-card">
+                    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                        <div fxFlex="100" class="sec1" fxFlex.xs="55">
+                            <mat-card class="mat-elevation-z0">
+                                <div class="title">
+                                    <mat-card-title>
+                                        Type kast
+                                   </mat-card-title>
+                                </div>
+                                
+                                <mat-card-content fxLayout="column"  >
+                                    <mat-list role="list" fxFlex="100" >
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50" class="question-right-panel">Welk type kast wil je?</span> 
+                                        </mat-list-item>
+
+                                        <mat-list-item  role="listitem" class="button-container">
+                                            <span fxFlex="30">
+                                                <button mat-raised-button [ngClass]="this.selected == 1 ? 'tab_selected' : 'tab_unselected'" (click)="change(1)"
+                                                >Ingebouwd</button>
+                                            </span>
+                                            <span fxFlex="30">
+                                                <button mat-raised-button [ngClass]="this.selected == 2 ? 'tab_selected' : 'tab_unselected'" (click)="change(2)"
+                                                 >Vrijstaand</button>
+                                            </span>
+                                            <span fxFlex="30">
+                                                <button mat-raised-button [ngClass]="this.selected == 3 ? 'tab_selected' : 'tab_unselected'" (click)="change(3)"
+                                                 >Half vrijstaand</button>
+                                            </span>
+                                        </mat-list-item>
+                                        <!--  2-->
+                                        <mat-list-item  role="listitem" >
+                                            <span fxFlex class="question-right-panel">Wil je een kast met deuren of een open kast?</span> 
+                                        </mat-list-item>
+
+                                        <mat-list-item  role="listitem" class="button-container">
+                                            <span fxFlex="30">
+                                                <button mat-raised-button [ngClass]="this.selected_slope == 1 ? 'tab_selected' : 'tab_unselected'" (click)="change_slope(1)"
+                                                 >Met deuren</button>
+                                            </span>
+                                            <span fxFlex="30">
+                                                <button mat-raised-button [ngClass]="this.selected_slope == 2 ? 'tab_selected' : 'tab_unselected'" (click)="change_slope(2)"
+                                                 >Zonder deuren</button>
+                                            </span>
+                                            <span fxFlex="30">
+                                                
+                                            </span>
+                                        </mat-list-item>
+                                        <!-- 3 -->
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex class="question-right-panel">Wil je een kast met schuine zijdes?</span> 
+                                        </mat-list-item>
+
+                                        <mat-list-item  role="listitem" class="button-container">
+                                            <span fxFlex="20">
+                                                <button mat-raised-button [ngClass]="this.door_status == 1 ? 'tab_selected' : 'tab_unselected'" (click)="door(1)"
+                                                 >Nee</button>
+                                            </span>
+                                            <span fxFlex="20">
+                                                <button mat-raised-button  [ngClass]="this.door_status == 2 ? 'tab_selected' : 'tab_unselected'" (click)="door(2)"
+                                                >Ja</button>
+                                            </span>
+                                            <span fxFlex ="60">
+                                                
+                                            </span>
+                                        </mat-list-item>
+                                      </mat-list>
+                                      
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                        
+                
+                    </div>
+                
+                </div>
+                <!-- <app-side-panel></app-side-panel> -->
+            </mat-card>
+        </div>
+
+
+    </div>
+    
+</div>

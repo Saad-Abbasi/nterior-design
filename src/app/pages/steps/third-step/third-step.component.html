@@ -1,0 +1,120 @@
+<div class="bounds">
+ 
+                   
+    <div class="content" fxLayout="row" fxLayoutGap="5px">
+        
+        <div fxFlex>
+            <mat-card class="image-card mat-elevation-z0" >
+                
+                <mat-card class="closet-wraper mat-elevation-z0" [style.min-width]="widthAreaBox"  >
+                <div class="schuine_kant">
+                    <div [ngClass]="(slopeDirection =='right')?'afschuining_border blackbox_right':'afschuining_border blackbox_left'" [style.border-width]="borderSlope"></div>
+                    <div [ngClass]="(slopeDirection =='right')?'afschuining_border afschuining_right':'afschuining_border afschuining_left'" [style.border-width]="borderSlope"></div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start ">
+                    <mat-card *ngFor="let closet of closets"
+                              [ngClass]="(closet.cols =='2')?'full-box':'half-box'" 
+                              [style.max-width]="closet.boxWidthTest"
+                              (click)="removeTile(closet)" >
+                        <span class="table-value">{{closet.widthInCm}}</span>
+                    </mat-card>
+                </div>
+                </mat-card>
+            </mat-card>
+
+            
+            <mat-card class="selection-box-card">
+                <div class="selection_box">
+                    <mat-card class="full-closet" [style.max-width]="widthAreaBox">
+
+                        <mat-card class="big-box">
+                            <div>
+                                <p> <button mat-fab class="button-add-closet" aria-label="Add Closet" (click)="addTile(2)">
+                                    <mat-icon>add</mat-icon>
+                                  </button> <br><span class="text-bottom">Brede kast </span> </p> 
+                            </div>
+                        </mat-card>
+                        <mat-card class="small-box">
+                            <div>
+                                <p> 
+                                    <button mat-mini-fab class="button-add-closet" aria-label="Add Closet" (click)="addTile(1)">
+                                    <mat-icon>add</mat-icon>
+                                  </button> <br><span class="text-bottom">Smalle kast</span> </p> 
+                            </div>
+                        </mat-card>
+                       
+                    </mat-card>
+                </div>
+            </mat-card>
+        </div>
+      
+        <div fxFlex="30" class="sec2">
+            <mat-card class="mat-card-right-panel">
+                <div class="side-card">
+                    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                        <div fxFlex="100" class="sec1" fxFlex.xs="55">
+                            <mat-card class="mat-elevation-z0">
+                                <div class="title">
+                                    <mat-card-title>
+                                        Overzicht
+                                   </mat-card-title>
+                                </div>
+                                
+                                <mat-card-content fxLayout="column"  >
+                                    <mat-list role="list" fxFlex="100" >
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Breedte kast (Br1)</span> <span fxFlex="50">{{cabnetWidth || 0}} cm</span>
+                                        </mat-list-item>
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Hoogte kast (H1)</span> <span fxFlex="50">{{cabnetHeight || 0}} cm</span>
+                                        </mat-list-item>
+                                        <div class="slope-box" *ngIf="slope">
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Breedte kast (Br2)</span> <span fxFlex="50">{{cabnetWidth2 || 0}} cm</span>
+                                            </mat-list-item>
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Hoogte kast (H2)</span> <span fxFlex="50">{{cabnetHeight2 || 0}} cm</span>
+                                            </mat-list-item>
+                                        </div>
+                                        
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Diepte kast</span> <span fxFlex="50">{{cabnetDepth || 0}} cm</span>
+                                        </mat-list-item>
+                                        <!-- <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Kleur binnenkast</span> <span fxFlex="50"></span>
+                                        </mat-list-item>
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Kleur buitenkast</span> <span fxFlex="50"></span>
+                                        </mat-list-item>
+                                        <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Handgrepen</span> <span fxFlex="50"></span>
+                                        </mat-list-item> 
+                                         <mat-list-item  role="listitem">
+                                            <span fxFlex="50">Kleur binnenkast</span> <span fxFlex="50">{{0}} cm</span>
+                                        </mat-list-item> -->
+                                      </mat-list>
+                                      <app-shared-form></app-shared-form>
+                                                                        <!-- Price Setup -->
+                                      <div class="section-below" fxFlex="100">
+                                        <mat-divider [inset]="true"></mat-divider>
+                                      <h2>Totale prijs:</h2>
+                                      <span id="total_price">€ <span id="total_price_number"> {{price}}</span></span><span class="btw">(excl. BTW)</span>
+                                      <p>Geschatte levertijd: 15 werkdagen</p>
+                                      </div>
+                                      
+                                </mat-card-content>
+                            </mat-card>
+                           
+                        </div>
+                        
+                
+                    </div>
+                
+                </div>
+                <!-- <app-side-panel></app-side-panel> -->
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>

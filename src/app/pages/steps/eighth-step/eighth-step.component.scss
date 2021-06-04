@@ -1,0 +1,79 @@
+$color: #e78932;
+.bounds{
+  margin-top: -200px; //for removing gap
+}
+.form-card{
+  background-color: white;
+  padding: 16px;
+  border-radius: 0px !important;
+  .heading-text-form{
+    color: black;
+    text-align: center;
+    h1{
+      font-size: xx-large;
+    }
+  }
+}
+.payment-form{
+  background-color: #424242 ;
+  padding: 20px;
+}
+.paymentForm{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    
+  }
+  
+  .payment-full-width {
+    width: 100%;
+  }
+  .payment-half-width {
+    width: 100%;
+  }
+  
+  .margin-helper{
+    padding-top: 48px;
+  }
+  
+  td {
+    padding-right: 8px;
+    max-width: 50%;
+  }
+  .order_button{
+      width: 100%;
+      font-size: large;
+      background-color: $color;
+  }
+  .price-invoice{
+    position: relative;
+    top: -80px;
+    padding: 5px;
+    float: right;
+}
+  
+  #total_price_number {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px 0;
+    color: #c89f74;
+    display: inline-block
+}
+#total_price{
+    @extend #total_price_number
+}
+.btw{
+    margin-left: 5px;
+    color: #c89f74;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 600px) {
+  .price-invoice{
+    position: relative;
+    padding: 5px;
+    float: right;
+}
+
+  }
+  

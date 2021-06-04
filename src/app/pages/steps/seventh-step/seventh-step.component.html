@@ -1,0 +1,181 @@
+<div class="bounds" style="overflow: auto;">
+    <div class="content" fxLayout="row" fxLayoutGap="5px">
+        <div fxFlex>
+            <mat-card class="image-card">
+                <mat-card class="closet-wraper" [style.min-width]="widthAreaBox">
+                    <div class="schuine_kant" >
+                        <div [ngClass]="(slopeDirection =='right')?'afschuining_border blackbox_right':'afschuining_border blackbox_left'" [style.border-width]="borderSlope"></div>
+                        <div [ngClass]="(slopeDirection =='right')?'afschuining_border afschuining_right':'afschuining_border afschuining_left'" [style.border-width]="borderSlope"></div>
+                    </div>
+                    <div fxLayout="row" fxLayoutAlign="start " >
+                        <mat-card  *ngFor="let closet of closets;let i = index"
+                            [ngClass]="(closet.cols =='2')?'full-box':'half-box'"
+                            [style.max-width]="closet.boxWidthTest"
+                            [style.backgroundImage]="'url(' + closet.closetDesignImage + ') ,
+                             url('+ bgImage[i] +')'"
+                             [style.transform]="scalVal[i]"
+                            >
+                            <span class="table-value">{{closet.widthInCm}}</span>
+                            <!-- <div *ngIf="isDoor=='true'">
+                                <button  mat-icon-button class="add-remove-door" aria-label="add remove door">
+                                    <mat-icon>add</mat-icon>
+                                </button>
+                            </div> -->
+                            
+                        </mat-card>
+                    </div>
+                </mat-card>
+
+                
+            </mat-card>
+
+            <!-- Design Color Choose -->
+            <mat-card *ngIf="isHandle == true " class="mat-color-card-super mat-elevation-z0" #designColor  >
+                <div class="selection_box">
+                    <mat-card class="full-closet mat-elevation-z0" [style.max-width]="widthAreaBox">
+                        <div fxLayout="row" class="color-card-head">
+                            <div fxFlex="50">
+                                <h5>Handgrepen</h5>
+                            </div>
+                            
+                        </div>
+                        <div fxLayout="row" >
+                            <div fxFlex>
+                                <mat-card [style.background-image]="'url('+handleImages[0]+')'"  class="color-card"
+                                    id="imge1" (click)="addHandle(0,'Blokgreep zwart')">
+                                    
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[1]+')'" class="color-card"
+                                    id="imge2" (click)="addHandle(1,'Platte U-greep zwart')">
+                                   
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[2]+')'" class="color-card"
+                                    id="imge3" (click)="addHandle(2,'T-greep inox')">
+                                  
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[3]+')'" class="color-card"
+                                    id="imge4" (click)="addHandle(3,'L-greep wit')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[4]+')'" class="color-card"
+                                    id="imge5" (click)="addHandle(4,'L-greep zwart')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[5]+')'" class="color-card"
+                                    id="imge6" (click)="addHandle(5,'Kubusgreep zwart')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[6]+')'" class="color-card"
+                                    id="imge7" (click)="addHandle(6,'Kubusgreep wit')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[7]+')'" class="color-card"
+                                    id="imge8" (click)="addHandle(7,'Hoekgreep Klein zwart')">
+                                </mat-card>
+                                 <mat-card [style.background-image]="'url('+handleImages[8]+')'" class="color-card"
+                                    id="imge9" (click)="addHandle(8,'Platte U-greep wit')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[9]+')'" class="color-card"
+                                    id="imge10" (click)="addHandle(9,'Alu knop zwart')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[10]+')'" class="color-card"
+                                    id="imge11" (click)="addHandle(10,'Inox blokje')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[11]+')'" class="color-card"
+                                    id="imge12" (click)="addHandle(11,'alu knop rond')">
+                                </mat-card>
+                                <mat-card [style.background-image]="'url('+handleImages[12]+')'" class="color-card"
+                                    id="imge13" (click)="addHandle(12,'Tip-on')">
+                                </mat-card>
+                                
+                            </div>
+                        </div>
+                    </mat-card>
+                </div>
+            </mat-card>
+        </div>
+
+
+
+        <div fxFlex="30" class="sec2">
+            <mat-card class="mat-card-right-panel">
+                <div class="side-card">
+                    <div class="content" fxLayout="row" fxLayout.xs="column" fxFlexFill>
+                        <div fxFlex="100" class="sec1" fxFlex.xs="55">
+                            <mat-card class="mat-elevation-z0">
+                                <div class="title">
+                                    <mat-card-title>
+                                        Overzicht
+                                    </mat-card-title>
+                                </div>
+
+                                <mat-card-content fxLayout="column">
+                                    <mat-list role="list" fxFlex="100">
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Breedte kast (X1)</span> <span
+                                                fxFlex="50">{{cabnetWidth || 0}} cm</span>
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Hoogte kast (Y1)</span> <span
+                                                fxFlex="50">{{cabnetHeight || 0}} cm</span>
+                                        </mat-list-item>
+                                        <div class="slope-box" *ngIf="slope">
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Breedte kast (X2)</span> <span fxFlex="50">{{cabnetWidth2 || 0}} cm</span>
+                                            </mat-list-item>
+                                            <mat-list-item  role="listitem">
+                                                <span fxFlex="50">Hoogte kast (Y2)</span> <span fxFlex="50">{{cabnetHeight2 || 0}} cm</span>
+                                            </mat-list-item>
+                                        </div>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Diepte kast</span> <span fxFlex="50">{{cabnetDepth || 0}}
+                                                cm</span>
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Kleur binnenkast</span>
+                                            <span *ngIf="innerColorName"class="label-of-fields"  fxFlex="30">{{innerColorName}}</span>
+                                            <span *ngIf='innerColor' fxFlex>
+                                                <div id="color-inner" [style.background-image]="'url('+innerColor+')'">
+                                                </div>
+                                            </span>
+
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Kleur buitenkast</span>
+                                            <span *ngIf="outerColorName" class="label-of-fields" fxFlex="30">{{outerColorName}}</span>
+                                            <span *ngIf='outerColor' fxFlex >
+                                                <div id="color-inner" [style.background-image]="'url('+outerColor+')'">
+                                                </div>
+                                            </span>
+                                        </mat-list-item>
+                                        <mat-list-item role="listitem">
+                                            <span fxFlex="50">Handgrepen</span>
+                                            <span *ngIf="handleName" class="label-of-fields" fxFlex="30">{{handleName}}</span>
+                                            <span *ngIf="handle" fxFlex>
+                                                <div class="handle-image" id="color-inner" [style.background-image]="'url('+handle+')'">
+                                                </div>
+                                            </span>
+                                        </mat-list-item>
+                                    </mat-list>
+                                    <app-shared-form></app-shared-form>
+                                    <!-- Price Setup -->
+                                    <div class="section-below" fxFlex="100">
+                                        <mat-divider [inset]="true"></mat-divider>
+                                        <h2>Totale prijs:</h2>
+                                        <span id="total_price">€<span id="total_price_number">{{price}}</span></span><span
+                                            class="btw">(excl. BTW)</span>
+                                        <p>Geschatte levertijd: 15 werkdagen</p>
+                                    </div>
+
+                                </mat-card-content>
+                            </mat-card>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </mat-card>
+        </div>
+
+    </div>
+
+</div>

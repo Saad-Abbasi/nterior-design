@@ -1,0 +1,154 @@
+<app-seventh-step #stepSeven></app-seventh-step>
+<div class="bounds" style="overflow: auto;">
+    <div class="content" fxLayout="row" fxLayoutGap="5px">
+        <div fxFlex ="70">
+            <div class="form-Container">
+                <mat-card class="form-card mat-elevation-z0">
+                   <div class="heading-text-form">
+                    <h1>Betalingsontvangstformulier</h1>
+                   </div> 
+                    <form class="payment-form" [formGroup]="paymentDetailForm" (ngSubmit)="onSubmit()" >
+                        <table class="payment-full-width" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Voornaam </mat-label>
+                                        <input matInput  autocomplete="off" formControlName="firstName">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Achternaam</mat-label>
+                                        <input matInput autocomplete="off" formControlName="lastName">
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+            
+            
+                            <tr>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>E-mailadres</mat-label>
+                                        <input type="email" matInput autocomplete="off" formControlName="email">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Telefoonnummer</mat-label>
+                                        <input type="number" matInput autocomplete="off" formControlName="phone">
+                                    </mat-form-field>
+                                </td>
+            
+                            </tr>
+            
+                            <tr>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Postcode</mat-label>
+                                        <input matInput autocomplete="off"  formControlName="postCode">
+            
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Gemeente</mat-label>
+                                        <input matInput autocomplete="off" formControlName="townShip" >
+                                    </mat-form-field>
+                                </td>
+                            </tr>
+                            <tr>
+            
+                                <td>
+                                    <div class="margin-helper"> </div>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Adres</mat-label>
+                                        <input type="text" matInput autocomplete="off" formControlName="address">
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <h2>Leveringsmethode</h2>
+                                    <mat-form-field appearance="outline" class="payment-half-width">
+                                        <mat-label>thuislevering</mat-label>
+                                        <mat-select formControlName="deliveryMethod">
+                                            <mat-option [value]="0">
+                                                thuislevering
+                                            </mat-option>
+                                            <mat-option [value]="1">
+                                                Afhalen (gratis)
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+            
+            
+                                </td>
+            
+                            </tr>
+                            <tr>
+            
+                                <td>
+                                    <div class="heading">
+                                        Optionele extra boodschap of opmerking
+                                    </div>
+                                    <mat-form-field class="payment-full-width" appearance="outline">
+                                        <mat-label>Gemeente</mat-label>
+                                        <textarea matInput autocomplete="off" formControlName="comment"></textarea>
+                                    </mat-form-field>
+                                </td>
+                                <td>
+                                    <mat-form-field class="payment-half-width" appearance="outline">
+                                        <mat-label>Leverdatum</mat-label>
+                                        <mat-select #isSepcificDate formControlName="onSpecificDay">
+                                            <mat-option [value]="0">
+                                                zo snel mogelijk
+                                            </mat-option>
+                                            <mat-option [value]="1">
+                                                op specifieke datum
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </td>
+            
+                            </tr>
+                               
+                           
+                            <tr>
+                                <td>
+                                    <button type="submit" mat-raised-button class="order_button">Bestellen en betalen
+                                        <mat-icon>open_in_new</mat-icon>
+                                    </button>
+            
+                                </td>
+                                <td *ngIf="isSepcificDate.value == '1'">
+                                        
+                                            <mat-form-field  appearance="outline"  >
+                                                <mat-label>Choose a date</mat-label>
+                                                <input matInput [matDatepicker]="picker" formControlName="deliveryDate">
+                                                <mat-datepicker-toggle matSuffix [for]="picker">
+                                                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                </td>
+                                
+                               
+                            </tr>
+                           <tr >
+                               <td></td>
+                                <td class="price-row"> 
+                                    <div class="section-below price-invoice " >
+                                        <mat-divider [inset]="true"></mat-divider>
+                                      <h2>Totale prijs:</h2>
+                                      <span id="total_price">€ <span id="total_price_number"> {{price}}</span></span><span class="btw">(excl. BTW)</span>
+                                      <p>Geschatte levertijd: 15 werkdagen</p>
+                                    </div>
+                                </td>
+                           </tr>
+                           
+                        </table>
+                    </form>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+

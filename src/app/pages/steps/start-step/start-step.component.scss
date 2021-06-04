@@ -1,0 +1,92 @@
+.image-card {
+    border: 2px solid gold;
+    // padding: 0px;
+  }
+  mat-card{
+      background-color: white;
+      mat-card-subtitle{
+        color: black;
+        display: inline-block;
+       mat-icon {
+           vertical-align: middle; 
+        }
+      }
+    //   img{
+    //       height: 600px;
+    //       margin-bottom: 5px;
+    //   }
+      .selectedDesignImage{
+          height: 550px;
+          width: 800px;
+          margin-bottom: 5px;
+          background-size: cover;
+          
+      }
+     
+  }
+  
+// Side panel styling 
+.mat-card-right-panel{
+    background-color: inherit;
+    padding: 0px;
+    .title{
+        background-color: black;
+        height: 50px;
+       position: relative;
+    }
+    mat-card-title{
+       padding-top: 15px;
+       padding-left: 15px;;
+      
+    }
+    
+    mat-card-content {
+        background-color: #fbf7f2;
+            color: black;
+            mat-list-item{
+            color: black;
+            
+            }
+            .question-right-panel{
+                margin-top: 20px;
+                margin-bottom: 5px;
+                font-weight: 500;
+                display: inline-block;
+            }
+            .button-container{
+                margin-bottom: 20px;
+            }
+            .tab_selected {
+                background-color: #343af2; 
+                border-radius: 0 px !important;;  
+            }
+    }
+   
+}
+
+
+
+#total_price_number {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px 0;
+    color: #c89f74;
+    display: inline-block
+}
+#total_price{
+    @extend #total_price_number
+}
+.btw{
+    margin-left: 5px;
+    color: #c89f74;
+    font-size: 12px;
+}
+mat-error{
+    font-size: larger;
+    background-color: #fbf7f2;
+    padding: 1rem;
+}
+.space-between-forms{
+    margin-top: 5px !important;
+    
+}

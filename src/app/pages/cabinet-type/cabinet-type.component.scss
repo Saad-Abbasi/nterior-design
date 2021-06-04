@@ -1,0 +1,34 @@
+.mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+ 
+  .mat-form-field {
+    margin-top: 16px;
+  }
+  .mat-container{
+     
+      margin: 15px;
+  }
+  .button-container{
+      display: flex;
+      padding-top: 5px;
+      
+      color: white;
+      .button-next{
+        text-align: right;
+        margin-left: 5px;
+        button{
+            background-color: gold;
+            padding: 4px 10px ;
+            font-size: 16px;
+        }
+    }
+    .button-prev{
+        @extend .button-next;
+        text-align: left;
+        
+        
+    }
+  }
+
+ 

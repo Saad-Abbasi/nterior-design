@@ -1,0 +1,48 @@
+
+
+    <div class="custom-grid">
+        <mat-grid-list cols="4" rowHeight="300px"  >
+           
+            <!-- <mat-grid-tile>
+                <img #imge5 [mat-dialog-close]="imge5.src" src="assets/CpBox/mediaPrdFeat_17_vol6" alt="Interior Desginer">
+            </mat-grid-tile> -->
+            <!-- <mat-grid-tile>
+                <img #img3 [mat-dialog-close]="img3.src" src="assets/CpBox/small/1.png" alt="interior Designer">
+            </mat-grid-tile> -->
+            
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img2 [mat-dialog-close]="img2.src" src="assets/CpBox/small/2.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img1 [mat-dialog-close]="img1.src" src="assets/CpBox/small/3.png" alt="Interior Desginer">
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <img #img4 [mat-dialog-close]="img4.src" src="assets/CpBox/small/4.png" alt="interior Designer">
+            </mat-grid-tile >
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img5 [mat-dialog-close]="img5.src" src="assets/CpBox/small/5.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile >
+                <img #img6 [mat-dialog-close]="img6.src" src="assets/CpBox/small/6.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img7 [mat-dialog-close]="img7.src" src="assets/CpBox/small/7.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <img #img8 [mat-dialog-close]="img8.src" src="assets/CpBox/small/8.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img9 [mat-dialog-close]="img9.src" src="assets/CpBox/small/9.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile >
+                <img #img10 [mat-dialog-close]="img10.src" src="assets/CpBox/small/10.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <img #img11 [mat-dialog-close]="img11.src" src="assets/CpBox/small/11.png" alt="interior Designer">
+            </mat-grid-tile>
+            <mat-grid-tile *ngIf="isDisable">
+                <img #img12 [mat-dialog-close]="img12.src" src="assets/CpBox/small/12.png" alt="interior Designer">
+            </mat-grid-tile>
+        </mat-grid-list>
+
+</div>

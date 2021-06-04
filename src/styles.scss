@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: #424242;
+ }
+
+
+
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.custom-modalbox .mat-dialog-container {
+    background-color: #c89f74;
+    color: black;
+    padding: 16px;
+    overflow-x: hidden;
+}
+.color-image-modalbox .mat-dialog-container{
+ overflow: hidden;
+ padding: 0px;
+ border: 5px solid white;
+ background-color: white;
+}
+.mat-tooltip{
+    font-size: larger;
+    color: black;
+}
+
+.cdk-global-overlay-wrapper {
+    display: flex;
+    position: absolute;
+    z-index: 1000;
+    overflow: auto;
+    pointer-events: auto;  
+  }
+//   Hide the table values e.g 50-cm
+  .table-value{
+      display: none !important;
+      // visibility: hidden;
+  }
+  .mat-button-toggle-label-content {
+    line-height: 32px !important;  
+}
+
+// Step header style
+
+.mat-step-header .mat-step-icon {
+    background-color: #e78932;
+    color: #fff;
+}
+//over rides button colors 
+.button-container button 
+{
+  background-color: #e78932 !important; 
+ 
+} 
+.closet-wraper.mat-card{
+  padding: 0px !important;
+ }
+
+ .mat-form-field-subscript-wrapper {
+    z-index: 100; 
+  }
+
+  .choose-outer-color{
+    // transform: translate(-50%, -50%);
+    .mat-dialog-container{
+      min-width: 70vw;
+      text-align: center;
+    }
+  }
+
+  // removing line under the right shared form 
+  .mat-divider{
+    display: none !important;
+  }
+
+  
+
+  // Slope Borde Global CSS
+
+    .schuine_kant .blackbox_left {
+     margin-left: 0;
+     left: 0;
+     z-index: 8;
+     margin-top: 0;
+     border-color: black transparent transparent transparent;
+        }
+    .schuine_kant .afschuining_left {
+    margin-left: -3px;
+    left: 0;
+    border-color: white transparent transparent transparent;
+    }
+    .schuine_kant .afschuining_right {
+        margin-right: -3px;
+        right: 0;
+        border-color: transparent white transparent transparent;
+    }
+    .schuine_kant .blackbox_right {
+        margin-right: 0;
+        right: 0;
+        z-index: 8;
+        margin-top: 0;
+        border-color: transparent black transparent transparent;
+    }
+.schuine_kant .afschuining_border {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    position: absolute;
+    z-index: 9;
+    margin-top: -3px;
+    
+}
+
+
+
+// SIX step check box of hanle
+.with-handle{
+  .mat-checkbox-frame {
+    border-color: #e78932;
+}
+}
+.message-box-mobile{
+  visibility: hidden;
+}
+@media (orientation:portrait) {
+  .configurator {
+     display: none; /* visibility: none; */
+  }
+}
+@media (orientation:landscape) and (max-width: 1300px) {
+  .mat-horizontal-content-container{
+    overflow-x: scroll !important;
+  }
+}
+  
+@media (orientation:landscape) and (max-width: 800px) {
+  .configurator {
+     display: none; /* visibility: none; */
+  }
+  .message-box-mobile{
+    visibility: visible;
+    text-align: center;
+  }
+}
+
+// Payment For 

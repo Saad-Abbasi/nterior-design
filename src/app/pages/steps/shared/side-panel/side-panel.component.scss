@@ -1,0 +1,48 @@
+mat-card{
+    background-color: inherit;
+    padding: 0px;
+    .title{
+        background-color: black;
+        height: 50px;
+       position: relative;
+    }
+    mat-card-title{
+       padding-top: 15px;
+       padding-left: 15px;;
+      
+    }
+    
+    mat-card-content {
+        background-color: #fbf7f2;
+            color: black;
+            mat-list-item{
+            color: black;
+            }
+            .section-below{
+                padding-left: 16px;
+                mat-divider{
+                    background-color: black;
+                    padding-right: -16px;
+                }
+            }
+    }
+   
+}
+
+
+
+#total_price_number {
+    font-size: 24px;
+    font-weight: 600;
+    padding: 5px 0;
+    color: #c89f74;
+    display: inline-block
+}
+#total_price{
+    @extend #total_price_number
+}
+.btw{
+    margin-left: 5px;
+    color: #c89f74;
+    font-size: 12px;
+}
