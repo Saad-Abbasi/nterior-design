@@ -53,8 +53,9 @@ onSubmit(){
   this.paymentDetailForm.patchValue({
     price:this.price
   })
-  this.payment.creatPayment(this.paymentDetailForm.value).subscribe((result)=>{
-    console.log('created paymeemt')
+  this.payment.creatPayment(this.paymentDetailForm.value).subscribe((result:any)=>{
+    window.location.href = result.paymentUrl;
+    console.log(result)
   },(err)=>{
     console.log(err)
   })
