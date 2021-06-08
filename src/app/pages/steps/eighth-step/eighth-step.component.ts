@@ -22,17 +22,17 @@ export class EighthStepComponent implements OnInit, AfterViewInit {
       this.price = 3023.45;
     }
     this.paymentDetailForm = new FormGroup({
-      firstName: new FormControl(''),
+      firstName: new FormControl('' ,[(Validators.required)] ),
       lastName: new FormControl(''),
       email : new FormControl('' ,[(Validators.required)] ),
-      phone : new FormControl(''),
-      postCode : new FormControl(''),
-      townShip : new FormControl(''),
-      address : new FormControl(''),
-      comment : new FormControl(''),
-      deliveryMethod : new FormControl('', ),
-      onSpecificDay:  new FormControl('', ),
-      deliveryDate : new FormControl('', ),
+      phone : new FormControl('' ,[(Validators.required)] ),
+      postCode : new FormControl('' ,[(Validators.required)] ),
+      townShip : new FormControl('' ,[(Validators.required)] ),
+      address : new FormControl('' ,[(Validators.required)] ),
+      comment : new FormControl('' ,[(Validators.required)] ),
+      deliveryMethod : new FormControl('' ,[(Validators.required)] ),
+      onSpecificDay:  new FormControl('' ,[(Validators.required)] ),
+      deliveryDate : new FormControl('' ,[(Validators.required)] ),
       price : new FormControl('',[(Validators.required)] )
     });
     
